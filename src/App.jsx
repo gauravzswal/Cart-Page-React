@@ -1,12 +1,13 @@
 import Nav from "./component/Nav";
-import Data from "./component/Data";
+import ProductList from "./component/ProductList";
+import { CartProvider } from "./Context/CartContext";
 
 function App() {
   return (
-    <>
+    <CartProvider>
       <Nav />
-      <Data />
-    </>
+      <ProductList />
+    </CartProvider>
   );
 }
 

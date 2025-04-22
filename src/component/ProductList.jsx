@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { TiArrowSortedUp, TiArrowSortedDown } from "react-icons/ti";
+import { CartPageContext } from "../Context/CartContext";
 
-const ProductList = ({ data }) => {
-  const [product, setProduct] = useState(data);
+const ProductList = () => {
+  const { product, setProduct } = useContext(CartPageContext); // Correct destructuring
 
   function handleClick(id, sign) {
     const updatedProduct = product.map((obj) => {
@@ -18,9 +19,7 @@ const ProductList = ({ data }) => {
   }
 
   function handleRemove(id) {
-    const removeCart = product.filter((obj) => {
-      return obj.id !== id;
-    });
+    const removeCart = product.filter((obj) => obj.id !== id);
     setProduct(removeCart);
   }
 
